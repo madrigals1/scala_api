@@ -13,7 +13,7 @@ import com.agoda.utils.MazeGenerator
 object Maze {
   final case class MazeSize(width: Int, height: Int)
 
-  implicit val system: ActorSystem = ActorSystem("SimpleAPI")
+  implicit val system: ActorSystem = ActorSystem("ScalaRESTAPI")
   implicit val executor: ExecutionContext = system.dispatcher
   implicit val mazeSizeFormat: RootJsonFormat[MazeSize] = jsonFormat2(MazeSize)
 
@@ -21,11 +21,11 @@ object Maze {
     // GET /
     path("") {
       get {
-        complete("Maze API is working!")
+        complete("Scala REST API is working!")
       }
     },
-    // POST /create
-    path("create") {
+    // POST /mazes
+    path("mazes") {
       post {
         entity(as[MazeSize]) { ms =>
           val mazeGenerator = new MazeGenerator(ms.width, ms.height)
