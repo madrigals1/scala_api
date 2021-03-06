@@ -26,6 +26,7 @@ sbt run
 Endpoint | `/mazes`
 --- | ---
 Method | **GET**
+Description | Generates maze with `width` and `height` sizes
 
 Send
 ```json
